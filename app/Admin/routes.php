@@ -16,4 +16,5 @@ Route::group([
     $router->get('/', 'HomeController@index');
 
     $router->resource('/file_storage', 'FileStorageController');
+    $router->any('/file-upload', [FileStorageController::class, 'ajaxFile']);
 });

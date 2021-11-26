@@ -5,8 +5,10 @@ namespace App\Admin\Controllers;
 use App\Admin\Repositories\FileStorage;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
+use Dcat\Admin\Http\JsonResponse;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Illuminate\Http\Request;
 
 class FileStorageController extends AdminController
 {
@@ -59,13 +61,24 @@ class FileStorageController extends AdminController
     protected function form(): Form
     {
         return Form::make(new FileStorage(), function (Form $form) {
-            $form->display('id');
-            $form->text('title');
-            $form->text('url');
-            $form->text('note');
+            // $form->display('id');
+            // $form->text('title');
+            // $form->text('url');
+            // $form->text('note');
+            $form->img('url');
+            $form->image('url')->name();
 
-            $form->display('created_at');
-            $form->display('updated_at');
+            // $form->display('created_at');
+            // $form->display('updated_at');
         });
+    }
+
+    public function ajaxFile(Request $request): JsonResponse
+    {
+        $result = [
+            'data' => $request->all(),
+            'message' => 'success silence'
+        ];
+        return JsonResponse::make($result);
     }
 }

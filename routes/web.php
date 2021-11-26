@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Controllers\FileStorageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::any('file-upload', [FileStorageController::class, 'ajaxFile']);
