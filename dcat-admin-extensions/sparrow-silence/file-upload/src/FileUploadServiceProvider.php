@@ -10,18 +10,12 @@ class FileUploadServiceProvider extends ServiceProvider
 {
 	protected $js = [
         'js/fileinput.min.js',
-        // 'js/plugins/sortable.min.js',
-        'js/themes/fa/theme.min.js',
         'js/locales/zh.js',
     ];
 	protected $css = [
 		'css/fileinput.min.css',
 	];
 
-	public function register()
-	{
-		//
-	}
 
 	public function init()
 	{

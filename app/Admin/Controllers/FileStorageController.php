@@ -66,7 +66,8 @@ class FileStorageController extends AdminController
             // $form->text('url');
             // $form->text('note');
             $form->img('url');
-            $form->image('url')->name();
+            // $form->multipleImage('url');
+            // $form->multipleImage('url');
 
             // $form->display('created_at');
             // $form->display('updated_at');

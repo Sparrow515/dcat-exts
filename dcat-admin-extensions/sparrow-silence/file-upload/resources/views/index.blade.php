@@ -1,23 +1,23 @@
-<div class="file-input-ext">
-    <input name="file-demo" type="file" class="_file_input_ext_" multiple>
+<div class="{{ $viewClass['form-group'] }} {{ $class }}">
+
+    <label for="{{$column}}" class="{{$viewClass['label']}} control-label">{!! $label !!}</label>
+
+    <div class="{{$viewClass['field']}}">
+
+        @include('admin::form.error')
+
+        <input name="{{$name}} silence" type="file" class="file-input" multiple>
+
+        @include('admin::form.help-block')
+    </div>
 </div>
 
-<style>
-
-</style>
-
 <script require="@sparrow-silence.file-upload">
-    Dcat.init('._file_input_ext_', function (self) {
-        self.fileinput({
-            language: 'zh',
-            uploadUrl: '/file-upload',
-            previewFileType: 'any',
-            theme: 'fa',
-            initialPreview: [
-                '<img src="{{$value}}" class="file-preview-image">'
-            ],
-        }).on('filebatchpreupload', function (event, data) {
-            // return false;
-        });
-    })
+    const $self = $('{!! $selector !!}');
+
+    let options = {!! $options !!},
+        inputSelector = $self.find('.file-input');
+
+    inputSelector.fileinput(options);
+
 </script>
